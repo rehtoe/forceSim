@@ -18,14 +18,25 @@ enum class ForceType{
 };
 
 class Force{
+  private: //       PRIVATE
     //  PROPERTIES
     Vector3d direction; //  position vector from point force is exerted on
     Particle tail; //   first particle, tail end of vector
     Particle arrow; //  second particle, arrow end of vector
+    //  METHODS
+    virtual void update_particles();
+  public: //        PUBLLIC
     //  CONSTRUCTORS
-    Force();
+    Force():direction(Vector3d(0.0,0.0,0.0)),tail(Particle()),arrow(Particle()){};
     //  METHODS
     virtual double magnitude() const;
+    Vector3d& get_direction();
+    Particle& get_start_particle();
+    Particle& get_end_particle();
+    void update_direction();
+    void change_start_particle(Particle new_particle);
+    void change_end_particle(Particle new_particle);
+    void step(double dt);
 
 };
 
@@ -40,7 +51,7 @@ class ElectricForce:Force{
     //  CONSTRUCTORS
     ElectricForce();
     //  METHODS
-    double magnitude() const;
+    double magnitude() const override;
 };
 class WeakNuclearForce:Force{
     //  PROPERTIES
