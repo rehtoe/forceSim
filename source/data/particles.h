@@ -13,6 +13,22 @@ enum class ParticleType{
     Proton = 1,
 };
 
+struct ParticleProperties{
+    //    PROPERTIES
+    bool EffectGravity;
+    bool EffectElectromagnetic;
+    bool EffectStrongNuclear;
+    bool EffectWeakNuclear;
+    double mass; // in kg
+    double charge; // in C
+    int baryonNumber;
+    int leptonNumber;
+    //    CONSTRUCTORS
+    ParticleProperties();
+    //    METHODS
+    //    OPERATOR OVERLOADS
+};
+
 class Particle : public PhysicsObject{
   public:
     //  PROPERTIES
@@ -24,8 +40,9 @@ class Particle : public PhysicsObject{
     double mass;
     */
     ParticleType type;
+    ParticleProperties properties;
     //  CONSTRUCTOR
-    Particle(): type(ParticleType(-99));
-    Particle(ParticleType ptype): type(ptype0);
+    Particle(): type(ParticleType(-99)), properties(ParticleProperties());
+    Particle(ParticleType ptype): type(ptype0), properties(ParticleProperties());
     //  METHODS
 };

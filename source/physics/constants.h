@@ -1,10 +1,11 @@
 ///     constants.h
+#include <limits>
 
 ///     USAGE
 static constexpr double VARIABLE_NAME = 123456789.0;
 
 ///     FORCE RANGES
-static constexpr double RANGE_GRAVITATIONAL = NULL; //      inf
+static constexpr double RANGE_GRAVITATIONAL = std::numeric_limits<double>::infinity(); //      inf
 static constexpr double RANGE_ELECTROMAGNETIC = NULL; //    inf
 static constexpr double RANGE_STRONG_NUCLEAR = 10e-14; //   meters
 static constexpr double RANGE_WEAK_NUCLEAR = 10e-15; //     meters
@@ -21,9 +22,9 @@ static constexpr double BLACHS_CONSTANT = ; //
 //              CONSERVED FOR:      GRAIVTATIONAL FORCE
 //              electron volts are units of energy, can use E = m*c^2 and do m = E/c^2
 //              divide these values by the speed of light squared to find mass in kilograms
-static constexpr double EVOLT_PROTON = 938.3*10e6; //   MeV/c^2 
-static constexpr double EVOLT_NEUTRON = 939.6*10e6; //  MeV/c^2
-static constexpr double EVOLT_ELECTRON = 0.511*10e6; // MeV/c^2
+static constexpr double EVOLT_PROTON = 938.3e6; //   MeV/c^2 
+static constexpr double EVOLT_NEUTRON = 939.6e6; //  MeV/c^2
+static constexpr double EVOLT_ELECTRON = 0.511e6; // MeV/c^2
 static constexpr double EVOLT_NEUTRINO = 1.0; //eV/c^2
 static constexpr double EVOLT_PHOTON = 0.0; //  eV/c^2
 //              CHARGE^22       ??? CHECK PAPER W/ PROFESSOR
@@ -47,9 +48,9 @@ static constexpr double LEPTON_NEUTRON = 0;
 static constexpr double LEPTON_ELECTRON = 1;
 static constexpr double LEPTON_NEUTRINO = 1;
 static constexpr double LEPTON_PHOTON = 0;
-static constexpr double  
 
 //      ATOMIC PARTICLES
+static constexpr
 
 //      MOLECULES
 
