@@ -31,6 +31,13 @@ class Vector{
         }
         return phvec;
     }
+    double dot(const Vector& other) const {
+        double result = 0.0;
+        for(int i = 0; i < DIMENSIONS; i++) {
+            result += components[i] * other.components[i];
+        }
+        return result;
+    }
     const auto& get_components() const { return components; }
     double& get_component(int comp_index) {
         if(comp_index >= DIMENSIONS){ throw std::out_of_range("Component index out of range"); }
@@ -50,7 +57,13 @@ class Vector{
         }
         return result;
     }
-    
+    Vector<DIMENSIONS>& operator+=(const Vector<DIMENSIONS>& other) {
+        const auto& other_comps = other.get_components();  // Use getter
+        for (int i = 0; i < DIMENSIONS; ++i) {
+            components[i] += other_comps.components[i];
+        }
+        return *this;
+    }
     Vector<DIMENSIONS> operator-(const Vector& other) const {
         Vector<DIMENSIONS> result;
         const auto& comps = get_components();  // One reference
@@ -60,6 +73,13 @@ class Vector{
         }
         return result;
     }
+    Vector<DIMENSIONS>& operator-=(const Vector<DIMENSIONS>& other) {
+        const auto& other_comps = other.get_components();  // Use getter
+        for (int i = 0; i < DIMENSIONS; ++i) {
+            components[i] -= other_comps.components[i];
+        }
+        return *this;
+    }
     Vector<DIMENSIONS> operator*(double scalar) const {
         Vector<DIMENSIONS> result;
         const auto& comps = get_components();  // One reference
@@ -67,6 +87,12 @@ class Vector{
             result.set_component(i,(comps[i] * scalar));
         }
         return result;
+    }
+    Vector<DIMENSIONS>& operator*=(double scalar) {
+        for (int i = 0; i < DIMENSIONS; ++i) {
+            components[i] *= scalar;
+        }
+        return *this;
     }
     Vector<DIMENSIONS> operator/(double scalar) const {
         Vector<DIMENSIONS> result;
@@ -76,5 +102,11 @@ class Vector{
         }
         return result;
     }
-
+    Vector<DIMENSIONS>& operator/=(double scalar) {
+        for (int i = 0; i < DIMENSIONS; ++i) {
+            components[i] /= scalar;
+        }
+        return *this;
+    }
+    
 };
