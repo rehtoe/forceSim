@@ -6,16 +6,17 @@ static constexpr double VARIABLE_NAME = 123456789.0;
 
 ///     FORCE RANGES
 static constexpr double RANGE_GRAVITATIONAL = std::numeric_limits<double>::infinity(); //      inf
-static constexpr double RANGE_ELECTROMAGNETIC = NULL; //    inf
+static constexpr double RANGE_ELECTROMAGNETIC = std::numeric_limits<double>::infinity(); //    inf
 static constexpr double RANGE_STRONG_NUCLEAR = 10e-14; //   meters
 static constexpr double RANGE_WEAK_NUCLEAR = 10e-15; //     meters
 
 ///     MISC
 static constexpr double SPEED_OF_LIGHT = 299792458.0; // [m/s], meters/second, 'c'
 static constexpr double ELEMENTARY_CHARGE = 1.602176634e-19; // [C], Coulombs, 'e'
-static constexpr double GRAVITATIONAL_CONSTANT = 6.67408; // [Nm^2/kg^2], Newton*meters^2/kilograms^2, 'G', (31) uncertainties in last decimals
+static constexpr double GRAVITATIONAL_CONSTANT = 6.67408; // [N⋅m^2/kg^2], Newton*meters^2/kilograms^2, 'G', (31) uncertainties in last decimals
 static constexpr double AVOGADROS_NUMBER = 6.02214076e23; // [mol^-1], 1/mol, ''
-static constexpr double BLACHS_CONSTANT = ; //
+static constexpr double PLANCK_CONSTANT = 6.62607015e-34; // [J⋅s]
+static constexpr double BOLTZMANN_CONSTANT = 1.380649e-23; // [J/K]
 
 ///     SUB-ATOMIC PARTICLES
 //              REST MASS
