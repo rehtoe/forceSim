@@ -2,13 +2,9 @@
 #include "../maths/vector3d.h"
 #include "../physics/objects.h"
 
-void initref_particles(){
-
-}
-
 enum class ParticleType{
     None = -99,
-    Electron = -1
+    Electron = -1,
     Neutron = 0,
     Proton = 1,
 };
@@ -26,9 +22,11 @@ struct ParticleProperties{
     //    CONSTRUCTORS
     ParticleProperties();
     //    METHODS
+    void setup_particle(ParticleType particle_type);
     //    OPERATOR OVERLOADS
 };
 
+template<int DIMENSIONS = 3>
 class Particle : public PhysicsObject{
   public:
     //  PROPERTIES
@@ -42,7 +40,7 @@ class Particle : public PhysicsObject{
     ParticleType type;
     ParticleProperties properties;
     //  CONSTRUCTOR
-    Particle(): type(ParticleType(-99)), properties(ParticleProperties());
-    Particle(ParticleType ptype): type(ptype0), properties(ParticleProperties());
+    Particle<DIMENSIONS>(): type(ParticleType::None), properties(ParticleProperties());
+    Particle<DIMENSIONS>(ParticleType ptype): type(ptype), properties(ParticleProperties());
     //  METHODS
 };
